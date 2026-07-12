@@ -4,6 +4,7 @@ import FeaturedProducts from "../components/FeaturedProducts";
 import WhyChooseUs from "../components/WhyChooseUs";
 import Brands from "../components/Brands";
 import Testimonials from "../components/Testimonials";
+import AIChatButton from "../components/AIChatButton";
 const Home = () => {
   return (
     <>
@@ -13,6 +14,7 @@ const Home = () => {
       <WhyChooseUs />
       <Brands />
       <Testimonials />
+      <AIChatButton />
     </>
   );
 };
