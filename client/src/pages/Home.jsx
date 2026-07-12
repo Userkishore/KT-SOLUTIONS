@@ -3,6 +3,7 @@ import Categories from "../components/Categories";
 import FeaturedProducts from "../components/FeaturedProducts";
 import WhyChooseUs from "../components/WhyChooseUs";
 import Brands from "../components/Brands";
+import Testimonials from "../components/Testimonials";
 const Home = () => {
   return (
     <>
@@ -11,6 +12,7 @@ const Home = () => {
       <FeaturedProducts />
       <WhyChooseUs />
       <Brands />
+      <Testimonials />
     </>
   );
 };
