@@ -12,7 +12,8 @@ const products = [
     id: 2,
     name: "HP Pavilion",
     price: "₹62,999",
-    image: "https://images.unsplash.com/photo-1517336714739-489689fd1ca8?w=600",
+    image: "https://th.bing.com/th/id/OPAC.HDEbotqvDDxLQg474C474?w=658&h=658&qlt=100&o=5&dpr=1.3&pid=21.1 w=600",
+    
     category: "Laptop",
     rating: 4,
   },
