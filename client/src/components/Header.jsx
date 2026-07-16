@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import {
   FaSearch,
   FaUser,
@@ -7,6 +9,7 @@ import {
 } from "react-icons/fa";
 
 const Header = () => {
+    const { cartItems } = useContext(CartContext);
   return (
     <header className="sticky top-0 z-50 bg-blue-700 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-6">
@@ -118,9 +121,9 @@ const Header = () => {
           >
             <FaShoppingCart className="text-2xl" />
 
-            <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] rounded-full px-1">
-              0
-            </span>
+            <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+  {cartItems.length}
+</span>
 
             <span className="text-xs">Cart</span>
           </Link>

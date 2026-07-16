@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { FaStar, FaShoppingCart } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 const ProductCard = ({ product }) => {
+    const { addToCart } = useContext(CartContext);
+
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
 
@@ -9,6 +13,12 @@ const ProductCard = ({ product }) => {
         alt={product.name}
         className="w-full h-56 object-cover"
       />
+      <Link
+  to={`/product/${product.id}`}
+  className="flex-1 bg-blue-700 text-white py-2 rounded-lg text-center hover:bg-blue-800"
+>
+  View Details
+</Link>
 
       <div className="p-5">
 
@@ -32,17 +42,16 @@ const ProductCard = ({ product }) => {
 
         <div className="flex gap-3 mt-6">
 
-          <button
-            className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
-          >
-            View Details
-          </button>
+ <button
+  onClick={() => {
+    console.log("CLICK WORKING");
+    alert("CLICK WORKING");
+  }}
 
-          <button
-            className="bg-green-600 text-white px-4 rounded-lg hover:bg-green-700 transition"
-          >
-            <FaShoppingCart />
-          </button>
+  className="bg-green-600 text-white px-4 rounded-lg hover:bg-green-700 transition"
+>
+  <FaShoppingCart />
+</button>
 
         </div>
 

@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 import BuildPC from "./pages/BuildPC";
 import ServicesPage from "./pages/ServicesPage";
 import Wishlist from "./pages/Wishlist";
+import ProductDetails from "./pages/ProductDetails";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
   <Route path="/login" element={<Login />} />
   <Route path="/register" element={<Register />} />
   <Route path="/cart" element={<Cart />} />
+  <Route path="/product/:id" element={<ProductDetails />} />
 </Routes>
     </MainLayout>
   );

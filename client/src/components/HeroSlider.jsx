@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const slides = [
   {
     image: "/banners/banner1.png",
     title: "Build Your Dream PC",
-    subtitle: "High Performance Gaming & Office PCs",
+    subtitle: "Gaming PCs • Office PCs • Workstations",
   },
   {
     image: "/banners/banner2.png",
-    title: "Latest Laptops",
+    title: "Latest Laptop Collection",
     subtitle: "Dell • HP • Lenovo • ASUS",
   },
   {
@@ -22,23 +23,33 @@ const HeroSlider = () => {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
+    const timer = setInterval(() => {
+      nextSlide();
     }, 3000);
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearInterval(timer);
+  }, [current]);
+
+  const nextSlide = () => {
+    setCurrent((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
+  };
 
   return (
-    <section className="relative h-500px overflow-hidden">
+    <section className="relative w-full h-[500px] overflow-hidden">
 
+      {/* Banner */}
       <img
         src={slides[current].image}
         alt={slides[current].title}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover transition-all duration-700"
       />
 
-      <div className="absolute inset-0 bg-black/50 flex items-center">
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/40 flex items-center">
 
         <div className="max-w-7xl mx-auto px-10 text-white">
 
@@ -63,6 +74,37 @@ const HeroSlider = () => {
           </div>
 
         </div>
+
+      </div>
+
+      {/* Previous Button */}
+      <button
+        onClick={prevSlide}
+        className="absolute left-5 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white p-3 rounded-full"
+      >
+        <FaChevronLeft />
+      </button>
+
+      {/* Next Button */}
+      <button
+        onClick={nextSlide}
+        className="absolute right-5 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white p-3 rounded-full"
+      >
+        <FaChevronRight />
+      </button>
+
+      {/* Dots */}
+      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-3">
+
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrent(index)}
+            className={`h-3 w-3 rounded-full ${
+              current === index ? "bg-yellow-400" : "bg-white"
+            }`}
+          />
+        ))}
 
       </div>
 
